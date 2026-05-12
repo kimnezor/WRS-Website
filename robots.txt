@@ -1,0 +1,35 @@
+# Waverock Software — robots.txt
+# Allow all crawlers to index everything; AI engines welcome.
+
+User-agent: *
+Allow: /
+
+# Explicitly allow major AI / answer-engine crawlers (some respect this signal)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://waverocksoftware.com/sitemap.xml
