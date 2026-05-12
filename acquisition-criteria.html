@@ -136,8 +136,7 @@
 
     <div class="personas">
       <div class="persona">
-        <span class="persona-tag">Profile A</span>
-        <h3>Scaling alongside us.</h3>
+        <h3>Scaling Alongside Us</h3>
         <p class="persona-desc">You still love running the company. You want a partner with capital, pattern-matching, and back-office support so you can focus on product and customers. You'll stay in the CEO seat and take a second bite at a much larger valuation in five to ten years.</p>
         <div class="persona-stats">
           <div class="persona-stat"><span class="k">Typical business age</span><span class="v">8&ndash;15 years</span></div>
@@ -150,22 +149,20 @@
       </div>
 
       <div class="persona">
-        <span class="persona-tag">Profile B</span>
-        <h3>Planning your next chapter.</h3>
-        <p class="persona-desc">You've been running this company for 15&ndash;25 years. You're proud of what you built, but the next decade of CEO grind is someone else's problem. You want a clean majority sale, a dignified exit path, and a buyer who won't tear apart the team and customers who stuck by you.</p>
+        <h3>Planning Your Next Chapter</h3>
+        <p class="persona-desc">You've been running this company for 15&ndash;25 years. You're proud of what you built, but the next decade of CEO grind is someone else's problem. You want a clean sale, a dignified exit path, and a buyer who won't tear apart the team and customers who stuck by you.</p>
         <div class="persona-stats">
           <div class="persona-stat"><span class="k">Typical business age</span><span class="v">15&ndash;30 years</span></div>
           <div class="persona-stat"><span class="k">Typical revenue</span><span class="v">$3M&ndash;$10M ARR</span></div>
           <div class="persona-stat"><span class="k">CEO age</span><span class="v">55&ndash;70</span></div>
           <div class="persona-stat"><span class="k">Growth rate</span><span class="v">Flat&ndash;10% YoY</span></div>
           <div class="persona-stat"><span class="k">EBITDA margin</span><span class="v">25&ndash;40%</span></div>
-          <div class="persona-stat"><span class="k">Wants from us</span><span class="v">A good landing for the business</span></div>
+          <div class="persona-stat"><span class="k">Wants from us</span><span class="v">A dignified exit</span></div>
         </div>
       </div>
 
       <div class="persona">
-        <span class="persona-tag">Profile C</span>
-        <h3>Refreshing the foundation.</h3>
+        <h3>Refreshing the Organization</h3>
         <p class="persona-desc">The product works. The customers are loyal. But the tech stack is aging, the GTM motion hasn't been rebuilt in a decade, and the company needs investment you don't have the risk appetite to fund yourself. You'd rather take some chips off the table and let someone else modernize.</p>
         <div class="persona-stats">
           <div class="persona-stat"><span class="k">Typical business age</span><span class="v">10&ndash;20 years</span></div>
@@ -221,6 +218,9 @@
     </div>
 
     <div class="services-grid" style="margin-top: 10px;">
+      <div class="service-chip city-owned" title="A Waverock company operates here today">Denver, CO</div>
+      <div class="service-chip city-owned" title="A Waverock company operates here today">Dublin, OH</div>
+      <div class="service-chip city-owned" title="A Waverock company operates here today">Atlanta, GA</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Boise, ID</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Salt Lake City, UT</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Sioux Falls, SD</div>
@@ -229,11 +229,12 @@
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Omaha, NE</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Raleigh&ndash;Durham, NC</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Madison, WI</div>
-      <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Columbus, OH</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Winnipeg, MB</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Calgary, AB</div>
       <div class="service-chip" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); color: white;">Halifax, NS</div>
+      <div class="service-chip city-yours">Your city</div>
     </div>
+    <p class="city-legend" style="margin-top: 14px; font-size: 0.8rem; color: rgba(255,255,255,0.55);"><span class="city-dot" aria-hidden="true" style="vertical-align: middle;"></span> &nbsp;A Waverock company already operates here.</p>
 
     <p style="margin-top: 40px; font-size: 1rem; color: rgba(255,255,255,0.72); max-width: 760px;">We look everywhere in the US and Canada, but the companies that fit best are usually built by founders who measure success in customers served and people retained &mdash; not in funding rounds raised. If yours has been compounding quietly off the standard venture flight path, that's a feature, not a bug.</p>
   </div>
@@ -364,7 +365,10 @@
   reveals.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => io.observe(el));

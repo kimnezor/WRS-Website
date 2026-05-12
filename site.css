@@ -239,6 +239,17 @@ p { color: var(--charcoal-soft); }
 .intro-copy h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 24px; }
 .intro-copy p { font-size: 1.05rem; margin-bottom: 18px; line-height: 1.7; }
 .intro-copy .highlight { color: var(--orange); font-weight: 600; }
+
+/* Justified prose on the home page (scoped via body.page-home) */
+body.page-home .intro-copy p,
+body.page-home .hero-sub,
+body.page-home .section-head .lede,
+body.page-home .track-footnote,
+body.page-home .fit-item p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
 .intro-visual { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); overflow: hidden; background: var(--charcoal); }
 .intro-visual svg { width: 100%; height: 100%; }
 .intro-photo {
@@ -671,6 +682,37 @@ p { color: var(--charcoal-soft); }
 .service-chip::before {
   content: ''; width: 8px; height: 8px; border-radius: 50%;
   background: var(--orange); flex-shrink: 0;
+}
+
+/* "Where we look" variants on the Criteria page (dark section) */
+.service-chip.city-owned {
+  background: rgba(229, 131, 74, 0.18) !important;
+  border-color: rgba(229, 131, 74, 0.55) !important;
+  color: white !important;
+}
+.service-chip.city-owned::before {
+  background: var(--orange-light);
+  width: 10px; height: 10px;
+  box-shadow: 0 0 10px rgba(229, 131, 74, 0.7);
+}
+.service-chip.city-yours {
+  background: transparent !important;
+  border: 1px dashed rgba(229, 131, 74, 0.55) !important;
+  color: rgba(229, 131, 74, 0.95) !important;
+  font-style: italic;
+}
+.service-chip.city-yours::before {
+  background: transparent;
+  border: 1.5px dashed rgba(229, 131, 74, 0.7);
+  box-sizing: border-box;
+}
+.city-legend .city-dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--orange-light);
+  box-shadow: 0 0 8px rgba(229, 131, 74, 0.6);
+  margin-right: 2px;
 }
 
 /* ============ CRITERIA TABLE (acquisition-criteria) ============ */
