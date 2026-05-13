@@ -604,12 +604,51 @@
   <div class="container">
     <div class="cta-inner">
       <div class="eyebrow" style="color: var(--orange-light);">Let's talk</div>
-      <h2>Curious about what a partnership could look like for your business?</h2>
-      <p>Every great partnership starts with a conversation. No obligation, no pressure, no drawn-out process. Just a real discussion about your business and what's next.</p>
-      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a href="mailto:info@waverocksoftware.com" class="btn btn-primary">Email Waverock <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <a href="mailto:info@waverocksoftware.com" class="btn btn-ghost">info@waverocksoftware.com</a>
-      </div>
+      <h2>Tell us about your <em>business</em>.</h2>
+      <p>Every great partnership starts with a conversation. Fill out the form below and we'll be in touch within one business day.</p>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row form-row-2">
+          <div class="form-field">
+            <label for="cf-first">First name</label>
+            <input type="text" id="cf-first" name="first_name" required autocomplete="given-name"/>
+          </div>
+          <div class="form-field">
+            <label for="cf-last">Last name</label>
+            <input type="text" id="cf-last" name="last_name" required autocomplete="family-name"/>
+          </div>
+        </div>
+
+        <div class="form-row form-row-2">
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email"/>
+          </div>
+          <div class="form-field">
+            <label for="cf-phone">Phone</label>
+            <input type="tel" id="cf-phone" name="phone" autocomplete="tel"/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-company">Company name</label>
+            <input type="text" id="cf-company" name="company" required autocomplete="organization"/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-message">Message to Waverock</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary">Submit <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <p class="form-fallback">Prefer plain email? <a href="mailto:info@waverocksoftware.com">info@waverocksoftware.com</a></p>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -742,6 +781,30 @@
   modal.querySelectorAll('[data-modal-close]').forEach(el => el.addEventListener('click', closeCompany));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeCompany(); });
 
+  // Contact form: open the user's email client with a prefilled message
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+      const f = new FormData(contactForm);
+      const company = (f.get('company') || '').trim();
+      const subject = 'Waverock Website Submission - ' + company;
+      const body =
+        'Name: ' + (f.get('first_name') || '').trim() + ' ' + (f.get('last_name') || '').trim() + '\n' +
+        'Email: ' + (f.get('email') || '').trim() + '\n' +
+        'Phone: ' + (f.get('phone') || '').trim() + '\n' +
+        'Company: ' + company + '\n\n' +
+        'Message:\n' + (f.get('message') || '').trim() + '\n';
+      const href = 'mailto:info@waverocksoftware.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = href;
+    });
+  }
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
@@ -772,10 +835,10 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org","@type": "WebSite","@id": "https://waverocksoftware.com/#website","url": "https://waverocksoftware.com/","name": "Waverock Software","publisher": {"@id": "https://waverocksoftware.com/#organization"},"inLanguage": "en-US"}
 </script>
+
 <script type="application/ld+json">
-{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "What does Waverock target for acquisition?","acceptedAnswer": {"@type": "Answer","text": "North American vertical software businesses with $2–15M ARR, 80%+ gross margins, 90%+ net retention, and a committed team."}},{"@type": "Question","name": "What's the expected involvement of the business owner?","acceptedAnswer": {"@type": "Answer","text": "You choose — keep running it, transition to chair/advisor, or step away — with 20% of proceeds rolled into Waverock equity to keep us aligned."}},{"@type": "Question","name": "How long does the acquisition process take?","acceptedAnswer": {"@type": "Answer","text": "About 90 days or fewer from signed LOI to close, with a clear timeline we commit to up front."}},{"@type": "Question","name": "Will my business retain its autonomy?","acceptedAnswer": {"@type": "Answer","text": "Yes — your team keeps control of product, customers, hiring, and vision; we align on a few growth and profitability guardrails, not the day-to-day."}},{"@type": "Question","name": "What support will my business receive post-acquisition?","acceptedAnswer": {"@type": "Answer","text": "Optional shared services across finance, HR, legal, AI, security and compliance, procurement, and benefits — you turn on what you need, when you need it."}},{"@type": "Question","name": "How is Waverock different from other acquirers?","acceptedAnswer": {"@type": "Answer","text": "A founder-led holding company built for long-term ownership — not a 4–6 year fund cycle — using shared patterns (\"Blueprints\") instead of one-size-fits-all playbooks."}},{"@type": "Question","name": "What industries do you focus on?","acceptedAnswer": {"@type": "Answer","text": "Niche verticals with defensibility and recurring revenue — healthcare, financial services, GovTech, supply chain, construction, AgTech, and many others where great vertical software gets built."}}]}
+{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "What does Waverock target for acquisition?","acceptedAnswer": {"@type": "Answer","text": "North American vertical software businesses with $2–15M ARR, 80%+ gross margins, 90%+ net retention, and a committed team."}},{"@type": "Question","name": "What's the expected involvement of the business owner?","acceptedAnswer": {"@type": "Answer","text": "You choose — keep running it, transition to chair/advisor, or step away — with 20% of proceeds rolled into Waverock equity to keep us aligned."}},{"@type": "Question","name": "How long does the acquisition process take?","acceptedAnswer": {"@type": "Answer","text": "About 90 days or fewer from signed LOI to close, with a clear timeline we commit to up front."}},{"@type": "Question","name": "Will my business retain its autonomy?","acceptedAnswer": {"@type": "Answer","text": "Yes — your team keeps control of product, customers, hiring, and vision; we align on a few growth and profitability guardrails, not the day-to-day."}},{"@type": "Question","name": "What support will my business receive post-acquisition?","acceptedAnswer": {"@type": "Answer","text": "Optional shared services across finance, HR, legal, AI, security and compliance, procurement, and benefits — you turn on what you need, when you need it."}},{"@type": "Question","name": "How is Waverock different from other acquirers?","acceptedAnswer": {"@type": "Answer","text": "A founder-led holding company built for permanent ownership — not a 4–6 year fund cycle — using shared patterns (\"Blueprints\") instead of one-size-fits-all playbooks."}},{"@type": "Question","name": "What industries do you focus on?","acceptedAnswer": {"@type": "Answer","text": "Niche verticals with defensibility and recurring revenue — healthcare, financial services, GovTech, supply chain, construction, AgTech, and many others where great vertical software gets built."}}]}
 </script>
 
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
