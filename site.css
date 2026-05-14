@@ -1109,3 +1109,48 @@ body.page-home .fit-item p {
   .form-row-2 { grid-template-columns: 1fr; }
   .form-submit-row { justify-content: center; text-align: center; }
 }
+
+/* ============ NETLIFY FORMS additions: honeypot + success card ============ */
+.form-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important; height: 1px !important;
+  overflow: hidden !important;
+}
+
+.contact-form-success {
+  max-width: 540px;
+  margin: 30px auto 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(229, 131, 74, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  text-align: center;
+  color: white;
+}
+.contact-form-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(229, 131, 74, 0.18);
+  color: var(--orange-light);
+  display: grid;
+  place-items: center;
+}
+.contact-form-success h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+.contact-form-success p {
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.contact-form-success a {
+  color: var(--orange-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
