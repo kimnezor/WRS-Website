@@ -1087,16 +1087,17 @@ body.page-home .fit-item p {
 .form-submit-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 18px;
   margin-top: 12px;
   flex-wrap: wrap;
 }
 .form-submit-row .btn { padding: 14px 32px; }
 .form-fallback {
-  margin: 0;
+  margin: 64px 0 0;
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.55);
+  text-align: center;
 }
 .form-fallback a {
   color: var(--orange-light);
@@ -1107,7 +1108,6 @@ body.page-home .fit-item p {
 
 @media (max-width: 700px) {
   .form-row-2 { grid-template-columns: 1fr; }
-  .form-submit-row { justify-content: center; text-align: center; }
 }
 
 /* ============ NETLIFY FORMS additions: honeypot + success card ============ */
